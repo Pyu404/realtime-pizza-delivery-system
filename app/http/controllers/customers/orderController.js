@@ -41,7 +41,6 @@ function orderController() {
 
             //console.log(orders)
         }
-
     }
 }
 
