@@ -4,7 +4,15 @@ const authController = require('../app/http/controllers/authController')
 
 const cartController = require('../app/http/controllers/customers/cartController')
 
+const orderController = require('../app/http/controllers/customers/orderController')
+
 const guest = require('../app/http/middlewares/guest')
+
+const auth = require('../app/http/middlewares/auth')
+
+const AdminOrderController = require('../app/http/controllers/admin/orderController')
+
+
 
 function initroutes(app) {
 
@@ -23,6 +31,18 @@ function initroutes(app) {
     app.get('/cart', cartController().index)
 
     app.post('/update-cart', cartController().update)
+
+
+    //customer routes
+    app.post('/orders', auth, orderController().store)
+
+    app.get('/customers/orders', auth, orderController().index)
+
+
+    //admin routes
+    app.get('/admin/orders', auth, AdminOrderController().index)
+
+
 }
 
 
