@@ -1,5 +1,4 @@
 <section class="cart py-16 ">
-    <!-- <%= session.cart.items%> -->
     <% if(session.cart ) { %>
         <div class="order mx-auto w-1/2">
             <div class="flex items-center border-b border-gray-300 pb-4 ">
@@ -7,7 +6,7 @@
                 <h1 class="font-bold ml-4 text-2xl">Order summary</h1>
             </div>
             <div class="pizza-list ">
-                <!-- <%= Object.values(session.cart.items)%> -->
+
                 <% for(let pizza of Object.values(session.cart.items)) { %>
                     <div class="flex items-center my-8">
                         <img class="w-24" src="/img/<%=pizza.item.image%>" alt="">

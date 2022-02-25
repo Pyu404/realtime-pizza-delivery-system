@@ -1,5 +1,6 @@
 import axios from 'axios'
 import moment from 'moment'
+import Noty from 'noty'
 
 
 
@@ -11,14 +12,15 @@ export function initAdmin() {
     axios.get('/admin/orders', {
         headers: {
             "X-Requested-With": "XMLHttpRequest"
-        }.then(res => {
-            orders = res.data
-            markup = generateMarkup(orders)
-            orderTableBody.innerHTML = markup
-        }).catch(err => {
-            console.log(err)
-        })
+        }
+    }).then(res => {
+        orders = res.data
+        markup = generateMarkup(orders)
+        orderTableBody.innerHTML = markup
+    }).catch(err => {
+        console.log(err)
     })
+    console.log(orders)
 
     function renderItems(items) {
         let parsedItems = Object.values(items)
@@ -82,5 +84,3 @@ export function initAdmin() {
 
     }
 }
-
-module.exports = initAdmin

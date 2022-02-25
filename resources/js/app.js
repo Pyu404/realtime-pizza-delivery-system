@@ -1,6 +1,7 @@
 import axios from 'axios'
 import Noty from 'noty'
 import { initAdmin } from './admin'
+import moment from 'moment'
 
 let addToCart = document.querySelectorAll('.add-to-cart')
 let cartCounter = document.querySelector('#cartCounter')
@@ -15,8 +16,6 @@ function updateCart(pizza) {
             text: 'Item added to cart',
             progressBar: false
         }).show();
-
-
     }).catch(err => {
         new Noty({
             type: 'error',
@@ -33,7 +32,6 @@ addToCart.forEach((btn) => {
     btn.addEventListener('click', (e) => {
         let pizza = JSON.parse(btn.dataset.pizza)
         updateCart(pizza)
-            //console.log(pizza)
     })
 })
 

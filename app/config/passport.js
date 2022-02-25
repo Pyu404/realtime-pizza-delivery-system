@@ -1,7 +1,7 @@
 const LocalStrategy = require('passport-local').Strategy
 const User = require('../models/user')
 const bcrypt = require('bcrypt')
-const req = require('express/lib/request')
+
 
 
 function init(passport) {
@@ -33,7 +33,7 @@ function init(passport) {
         })
     })
 
-    req.user
+
 
 }
 

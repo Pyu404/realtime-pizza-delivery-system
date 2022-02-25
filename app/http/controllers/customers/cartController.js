@@ -23,7 +23,7 @@ function cartController() {
                 }
             }
             let cart = req.session.cart
-                //console.log(req.body)
+                // console.log(req.body)
                 //check if item does not exist in cart
             if (!cart.items[req.body._id]) {
                 cart.items[req.body._id] = {
