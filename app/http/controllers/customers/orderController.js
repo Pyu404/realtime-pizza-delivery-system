@@ -40,6 +40,17 @@ function orderController() {
             res.render('customers/orders', { orders: orders, moment: moment })
 
             //console.log(orders)
+        },
+
+        async show(req, res) {
+            const order = await Order.findById(req.params.id)
+                //authorize user
+            if (req.user._id.toString() === order.customerId.toString()) {
+                return res.render('customers/singleOrder', { order: order })
+            } else {
+                return res.redirect('/')
+            }
+
         }
     }
 }
