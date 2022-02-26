@@ -27195,50 +27195,9 @@ module.exports = function(module) {
   !*** ./resources/js/admin.js ***!
   \*******************************/
 /*! exports provided: initAdmin */
-/***/ (function(module, __webpack_exports__, __webpack_require__) {
+/***/ (function(module, exports) {
 
-"use strict";
-__webpack_require__.r(__webpack_exports__);
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "initAdmin", function() { return initAdmin; });
-/* harmony import */ var axios__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! axios */ "./node_modules/axios/index.js");
-/* harmony import */ var axios__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(axios__WEBPACK_IMPORTED_MODULE_0__);
-/* harmony import */ var moment__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! moment */ "./node_modules/moment/moment.js");
-/* harmony import */ var moment__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(moment__WEBPACK_IMPORTED_MODULE_1__);
-/* harmony import */ var noty__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! noty */ "./node_modules/noty/lib/noty.js");
-/* harmony import */ var noty__WEBPACK_IMPORTED_MODULE_2___default = /*#__PURE__*/__webpack_require__.n(noty__WEBPACK_IMPORTED_MODULE_2__);
-
-
-
-function initAdmin() {
-  var orderTableBody = document.querySelector('#orderTableBody');
-  var orders = [];
-  var markup;
-  axios__WEBPACK_IMPORTED_MODULE_0___default.a.get('/admin/orders', {
-    headers: {
-      "X-Requested-With": "XMLHttpRequest"
-    }
-  }).then(function (res) {
-    orders = res.data;
-    markup = generateMarkup(orders);
-    orderTableBody.innerHTML = markup;
-  })["catch"](function (err) {
-    console.log(err);
-  });
-  console.log(orders);
-
-  function renderItems(items) {
-    var parsedItems = Object.values(items);
-    return parsedItems.map(function (menuItem) {
-      return "\n            <p>".concat(menuItem.item.name, " - ").concat(menuItem.qty, " pcs </p>\n        ");
-    }).join('');
-  }
-
-  function generateMarkup(orders) {
-    return orders.map(function (order) {
-      return "\n            <tr>\n            <td class=\"border px-4 py-2 text-green-900\">\n                <p>".concat(order._id, "</p>\n                <div>").concat(renderItems(order.items), "</div>\n            </td>\n            <td class=\"border px-4 py-2\">").concat(order.customerId.name, "</td>\n            <td class=\"border px-4 py-2\">").concat(order.address, "</td>\n            <td class=\"border px-4 py-2\">\n                <div class=\"inline-block relative w-64\">\n                    <form action=\"/admin/order/status\" method=\"POST\">\n                        <input type=\"hidden\" name=\"orderId\" value=\"").concat(order._id, "\">\n                        <select name=\"status\" onchange=\"this.form.submit()\"\n                            class=\"block appearance-none w-full bg-white border border-gray-400 hover:border-gray-500 px-4 py-2 pr-8 rounded shadow leading-tight focus:outline-none focus:shadow-outline\">\n                            <option value=\"order_placed\"\n                                ").concat(order.status === 'order_placed' ? 'selected' : '', ">\n                                Placed</option>\n                            <option value=\"confirmed\" ").concat(order.status === 'confirmed' ? 'selected' : '', ">\n                                Confirmed</option>\n                            <option value=\"prepared\" ").concat(order.status === 'prepared' ? 'selected' : '', ">\n                                Prepared</option>\n                            <option value=\"delivered\" ").concat(order.status === 'delivered' ? 'selected' : '', ">\n                                Delivered\n                            </option>\n                            <option value=\"completed\" ").concat(order.status === 'completed' ? 'selected' : '', ">\n                                Completed\n                            </option>\n                        </select>\n                    </form>\n                    <div\n                        class=\"pointer-events-none absolute inset-y-0 right-0 flex items-center px-2 text-gray-700\">\n                        <svg class=\"fill-current h-4 w-4\" xmlns=\"http://www.w3.org/2000/svg\"\n                            viewBox=\"0 0 20 20\">\n                            <path\n                                d=\"M9.293 12.95l.707.707L15.657 8l-1.414-1.414L10 10.828 5.757 6.586 4.343 8z\" />\n                        </svg>\n                    </div>\n                </div>\n            </td>\n            <td class=\"border px-4 py-2\">\n                ").concat(moment__WEBPACK_IMPORTED_MODULE_1___default()(order.createdAt).format('hh:mm A'), "\n            </td>\n          \n        </tr>\n    ");
-    }).join('');
-  }
-}
+throw new Error("Module build failed (from ./node_modules/babel-loader/lib/index.js):\nSyntaxError: C:\\Users\\pyuprince\\OneDrive\\Desktop\\my project\\realtime-pizza\\resources\\js\\admin.js: Identifier 'socket' has already been declared. (7:26)\n\n\u001b[0m \u001b[90m  5 |\u001b[39m\u001b[0m\n\u001b[0m \u001b[90m  6 |\u001b[39m\u001b[0m\n\u001b[0m\u001b[31m\u001b[1m>\u001b[22m\u001b[39m\u001b[90m  7 |\u001b[39m \u001b[36mexport\u001b[39m \u001b[36mfunction\u001b[39m initAdmin(socket) {\u001b[0m\n\u001b[0m \u001b[90m    |\u001b[39m                           \u001b[31m\u001b[1m^\u001b[22m\u001b[39m\u001b[0m\n\u001b[0m \u001b[90m  8 |\u001b[39m     \u001b[36mconst\u001b[39m orderTableBody \u001b[33m=\u001b[39m document\u001b[33m.\u001b[39mquerySelector(\u001b[32m'#orderTableBody'\u001b[39m)\u001b[0m\n\u001b[0m \u001b[90m  9 |\u001b[39m     \u001b[36mlet\u001b[39m orders \u001b[33m=\u001b[39m []\u001b[0m\n\u001b[0m \u001b[90m 10 |\u001b[39m     \u001b[36mlet\u001b[39m markup\u001b[0m\n    at Parser._raise (C:\\Users\\pyuprince\\OneDrive\\Desktop\\my project\\realtime-pizza\\node_modules\\@babel\\parser\\lib\\index.js:476:17)\n    at Parser.raiseWithData (C:\\Users\\pyuprince\\OneDrive\\Desktop\\my project\\realtime-pizza\\node_modules\\@babel\\parser\\lib\\index.js:469:17)\n    at Parser.raise (C:\\Users\\pyuprince\\OneDrive\\Desktop\\my project\\realtime-pizza\\node_modules\\@babel\\parser\\lib\\index.js:430:17)\n    at ScopeHandler.checkRedeclarationInScope (C:\\Users\\pyuprince\\OneDrive\\Desktop\\my project\\realtime-pizza\\node_modules\\@babel\\parser\\lib\\index.js:1720:12)\n    at ScopeHandler.declareName (C:\\Users\\pyuprince\\OneDrive\\Desktop\\my project\\realtime-pizza\\node_modules\\@babel\\parser\\lib\\index.js:1700:14)\n    at Parser.checkLVal (C:\\Users\\pyuprince\\OneDrive\\Desktop\\my project\\realtime-pizza\\node_modules\\@babel\\parser\\lib\\index.js:11626:24)\n    at Parser.checkParams (C:\\Users\\pyuprince\\OneDrive\\Desktop\\my project\\realtime-pizza\\node_modules\\@babel\\parser\\lib\\index.js:13478:12)\n    at Parser.<anonymous> (C:\\Users\\pyuprince\\OneDrive\\Desktop\\my project\\realtime-pizza\\node_modules\\@babel\\parser\\lib\\index.js:13453:14)\n    at Parser.parseBlockOrModuleBlockBody (C:\\Users\\pyuprince\\OneDrive\\Desktop\\my project\\realtime-pizza\\node_modules\\@babel\\parser\\lib\\index.js:14762:23)\n    at Parser.parseBlockBody (C:\\Users\\pyuprince\\OneDrive\\Desktop\\my project\\realtime-pizza\\node_modules\\@babel\\parser\\lib\\index.js:14730:10)\n    at Parser.parseBlock (C:\\Users\\pyuprince\\OneDrive\\Desktop\\my project\\realtime-pizza\\node_modules\\@babel\\parser\\lib\\index.js:14714:10)\n    at Parser.parseFunctionBody (C:\\Users\\pyuprince\\OneDrive\\Desktop\\my project\\realtime-pizza\\node_modules\\@babel\\parser\\lib\\index.js:13440:24)\n    at Parser.parseFunctionBodyAndFinish (C:\\Users\\pyuprince\\OneDrive\\Desktop\\my project\\realtime-pizza\\node_modules\\@babel\\parser\\lib\\index.js:13424:10)\n    at C:\\Users\\pyuprince\\OneDrive\\Desktop\\my project\\realtime-pizza\\node_modules\\@babel\\parser\\lib\\index.js:14884:12\n    at Parser.withSmartMixTopicForbiddingContext (C:\\Users\\pyuprince\\OneDrive\\Desktop\\my project\\realtime-pizza\\node_modules\\@babel\\parser\\lib\\index.js:13794:14)\n    at Parser.parseFunction (C:\\Users\\pyuprince\\OneDrive\\Desktop\\my project\\realtime-pizza\\node_modules\\@babel\\parser\\lib\\index.js:14883:10)\n    at Parser.parseFunctionStatement (C:\\Users\\pyuprince\\OneDrive\\Desktop\\my project\\realtime-pizza\\node_modules\\@babel\\parser\\lib\\index.js:14495:17)\n    at Parser.parseStatementContent (C:\\Users\\pyuprince\\OneDrive\\Desktop\\my project\\realtime-pizza\\node_modules\\@babel\\parser\\lib\\index.js:14157:21)\n    at Parser.parseStatement (C:\\Users\\pyuprince\\OneDrive\\Desktop\\my project\\realtime-pizza\\node_modules\\@babel\\parser\\lib\\index.js:14113:17)\n    at Parser.parseExportDeclaration (C:\\Users\\pyuprince\\OneDrive\\Desktop\\my project\\realtime-pizza\\node_modules\\@babel\\parser\\lib\\index.js:15471:17)\n    at Parser.maybeParseExportDeclaration (C:\\Users\\pyuprince\\OneDrive\\Desktop\\my project\\realtime-pizza\\node_modules\\@babel\\parser\\lib\\index.js:15417:31)\n    at Parser.parseExport (C:\\Users\\pyuprince\\OneDrive\\Desktop\\my project\\realtime-pizza\\node_modules\\@babel\\parser\\lib\\index.js:15344:29)\n    at Parser.parseStatementContent (C:\\Users\\pyuprince\\OneDrive\\Desktop\\my project\\realtime-pizza\\node_modules\\@babel\\parser\\lib\\index.js:14229:27)\n    at Parser.parseStatement (C:\\Users\\pyuprince\\OneDrive\\Desktop\\my project\\realtime-pizza\\node_modules\\@babel\\parser\\lib\\index.js:14113:17)\n    at Parser.parseBlockOrModuleBlockBody (C:\\Users\\pyuprince\\OneDrive\\Desktop\\my project\\realtime-pizza\\node_modules\\@babel\\parser\\lib\\index.js:14739:25)\n    at Parser.parseBlockBody (C:\\Users\\pyuprince\\OneDrive\\Desktop\\my project\\realtime-pizza\\node_modules\\@babel\\parser\\lib\\index.js:14730:10)\n    at Parser.parseProgram (C:\\Users\\pyuprince\\OneDrive\\Desktop\\my project\\realtime-pizza\\node_modules\\@babel\\parser\\lib\\index.js:14032:10)\n    at Parser.parseTopLevel (C:\\Users\\pyuprince\\OneDrive\\Desktop\\my project\\realtime-pizza\\node_modules\\@babel\\parser\\lib\\index.js:14019:25)\n    at Parser.parse (C:\\Users\\pyuprince\\OneDrive\\Desktop\\my project\\realtime-pizza\\node_modules\\@babel\\parser\\lib\\index.js:15940:10)\n    at parse (C:\\Users\\pyuprince\\OneDrive\\Desktop\\my project\\realtime-pizza\\node_modules\\@babel\\parser\\lib\\index.js:15992:38)\n    at parser (C:\\Users\\pyuprince\\OneDrive\\Desktop\\my project\\realtime-pizza\\node_modules\\@babel\\core\\lib\\parser\\index.js:52:34)\n    at parser.next (<anonymous>)\n    at normalizeFile (C:\\Users\\pyuprince\\OneDrive\\Desktop\\my project\\realtime-pizza\\node_modules\\@babel\\core\\lib\\transformation\\normalize-file.js:87:38)\n    at normalizeFile.next (<anonymous>)\n    at run (C:\\Users\\pyuprince\\OneDrive\\Desktop\\my project\\realtime-pizza\\node_modules\\@babel\\core\\lib\\transformation\\index.js:31:50)\n    at run.next (<anonymous>)");
 
 /***/ }),
 
@@ -27258,6 +27217,12 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _admin__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./admin */ "./resources/js/admin.js");
 /* harmony import */ var moment__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! moment */ "./node_modules/moment/moment.js");
 /* harmony import */ var moment__WEBPACK_IMPORTED_MODULE_3___default = /*#__PURE__*/__webpack_require__.n(moment__WEBPACK_IMPORTED_MODULE_3__);
+function ownKeys(object, enumerableOnly) { var keys = Object.keys(object); if (Object.getOwnPropertySymbols) { var symbols = Object.getOwnPropertySymbols(object); enumerableOnly && (symbols = symbols.filter(function (sym) { return Object.getOwnPropertyDescriptor(object, sym).enumerable; })), keys.push.apply(keys, symbols); } return keys; }
+
+function _objectSpread(target) { for (var i = 1; i < arguments.length; i++) { var source = null != arguments[i] ? arguments[i] : {}; i % 2 ? ownKeys(Object(source), !0).forEach(function (key) { _defineProperty(target, key, source[key]); }) : Object.getOwnPropertyDescriptors ? Object.defineProperties(target, Object.getOwnPropertyDescriptors(source)) : ownKeys(Object(source)).forEach(function (key) { Object.defineProperty(target, key, Object.getOwnPropertyDescriptor(source, key)); }); } return target; }
+
+function _defineProperty(obj, key, value) { if (key in obj) { Object.defineProperty(obj, key, { value: value, enumerable: true, configurable: true, writable: true }); } else { obj[key] = value; } return obj; }
+
 
 
 
@@ -27297,9 +27262,70 @@ if (alertMsg) {
   setTimeout(function () {
     alertMsg.remove();
   }, 2000);
+} // change order status
+
+
+var statuses = document.querySelectorAll('.status_line');
+var hiddenInput = document.querySelector('#hiddenInput');
+var order = hiddenInput ? hiddenInput.value : null; //console.log(order)
+
+order = JSON.parse(order);
+var time = document.createElement('small');
+
+function updateStatus(order) {
+  //
+  statuses.forEach(function (status) {
+    status.classList.remove('step-completed');
+    status.classList.remove('current');
+  });
+  var stepCompleted = true;
+  statuses.forEach(function (status) {
+    var dataProp = status.dataset.status;
+
+    if (stepCompleted) {
+      status.classList.add('step-completed');
+    }
+
+    if (dataProp === order.status) {
+      stepCompleted = false;
+      time.innerText = moment__WEBPACK_IMPORTED_MODULE_3___default()(order.updatedAt).format('hh:mm A');
+      status.appendChild(time);
+
+      if (status.nextElementSibling) {
+        status.nextElementSibling.classList.add('current');
+      }
+    }
+  });
 }
 
-Object(_admin__WEBPACK_IMPORTED_MODULE_2__["initAdmin"])();
+updateStatus(order); //socket
+
+var socket = io();
+Object(_admin__WEBPACK_IMPORTED_MODULE_2__["initAdmin"])(socket); //join 
+
+if (order) {
+  socket.emit('join', "order_".concat(order._id));
+}
+
+var adminAreaPath = window.location.pathname; //console.log(adminAreaPath)
+
+if (adminAreaPath.includes('admin')) {
+  socket.emit('join', 'adminRoom');
+}
+
+socket.on('orderUpdated', function (data) {
+  var updatedOrder = _objectSpread({}, order);
+
+  updatedOrder.updatedAt = moment__WEBPACK_IMPORTED_MODULE_3___default()().format();
+  updatedOrder.status = data.status;
+  updateStatus(updatedOrder);
+  new noty__WEBPACK_IMPORTED_MODULE_1___default.a({
+    type: 'success',
+    timeout: 1000,
+    text: 'order updated',
+    progressBar: false
+  }).show(); //console.log(data)
+});
 
 /***/ }),
 

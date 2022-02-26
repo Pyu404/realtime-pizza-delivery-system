@@ -11,6 +11,7 @@ const session = require('express-session')
 const flash = require('express-flash')
 const MongoStore = require('connect-mongo')
 const passport = require('passport')
+const Emitter = require('events')
 
 
 //const  Console  = require('console')
@@ -37,12 +38,15 @@ let mongoStore = MongoStore.create({
     dbName: 'pizza',
     collectionName: 'sessions',
 });
+
 // let mongoStore = new MongoDbStore({
 //     mongooseConnection: connection,
 //     collection: 'sessions'
 // })
-
-//session config
+//event emitter
+const eventEmitter = new Emitter()
+app.set('eventEmitter', eventEmitter)
+    //session config
 
 app.use(session({
     secret: process.env.COOKIE_SECRET,
@@ -95,6 +99,29 @@ require('./routes/web')(app)
 
 
 
-app.listen(PORT, () => {
+const server = app.listen(PORT, () => {
     console.log(`listening on port ${PORT}`)
+})
+
+//socket
+
+const io = require('socket.io')(server)
+
+io.on('connection', (socket) => {
+    //join
+    //console.log(socket.id)
+
+    socket.on('join', (orderId) => {
+        //console.log(orderId)
+        socket.join(orderId)
+    })
+})
+
+
+eventEmitter.on('orderUpdated', (data) => {
+    io.to(`order_${data.id}`).emit('orderUpdated', data)
+})
+
+eventEmitter.on('orderPlaced', (data) => {
+    io.to('adminRoom').emit('orderPlaced', data)
 })
