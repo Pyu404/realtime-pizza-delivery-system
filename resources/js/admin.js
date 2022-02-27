@@ -83,7 +83,7 @@ export function initAdmin(socket) {
         }).join('')
 
     }
-    let socket = io()
+
     socket.on('orderPlaced', (order) => {
         new Noty({
             type: 'success',
